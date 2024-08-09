@@ -1,0 +1,25 @@
+{
+  "name": "NavMeshDots.Chief.Runtime",
+  "references": [
+    "Unity.Entities",
+    "Unity.Jobs",
+    "Unity.Mathematics",
+    "Unity.Transforms",
+    "Unity.Collections",
+    "Unity.Entities.Hybrid",
+    "Unity.Burst",
+    "Unity.Scenes",
+    "Unity.AI.Navigation",
+    "Unity.Physics",
+    "Unity.Physics.Custom",
+    "NavMeshDots.Runtime"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": true,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "noEngineReferences": false
+}
