@@ -6,6 +6,7 @@ using UnityEngine;
 
 namespace NavMeshChiefMode.Hybrid.Authoring
 {
+    [DisallowMultipleComponent]
     public class NavMeshChiefSourceAuthoring : MonoBehaviour
     {
         private class NavMeshChiefSourceBaker : Baker<NavMeshChiefSourceAuthoring>

@@ -18,7 +18,16 @@ namespace NavMeshChiefMode.Runtime.Jobs
         [BurstCompile]
         public void Execute(NavMeshChiefSourceRegistered registered, Entity entity)
         {
-            sources.RemoveAt(registered.index);
+            for (int i = 0; i < sources.Length; i++)
+            {
+                var source = sources[i];
+                if (source.binded.Equals(entity))
+                {
+                    sources.RemoveAt(i);
+                    break;
+                }
+            }
+
             ecb.RemoveComponent<NavMeshChiefSourceRegistered>(entity);
             hasUpdates[0]++;
         }

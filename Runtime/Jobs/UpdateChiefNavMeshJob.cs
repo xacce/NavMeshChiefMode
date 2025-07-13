@@ -20,7 +20,6 @@ namespace NavMeshChiefMode.Runtime.Jobs
             if (hasUpdates[0] > 0)
             {
                 ecb.AddComponent<ReBuildNavMesh>(entity);
-                Debug.Log("Nav mesh updates");
             }
         }
     }

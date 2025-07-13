@@ -10,7 +10,7 @@ namespace NavMeshChiefMode.Runtime
 
     public partial struct NavMeshChiefSourceRegistered :  ICleanupComponentData
     {
-        public int index;
+        
     }
 
     public partial struct NavMeshChiefRuntimeSource : IComponentData
