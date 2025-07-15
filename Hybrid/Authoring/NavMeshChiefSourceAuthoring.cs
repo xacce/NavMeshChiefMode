@@ -9,6 +9,7 @@ namespace NavMeshChiefMode.Hybrid.Authoring
     [DisallowMultipleComponent]
     public class NavMeshChiefSourceAuthoring : MonoBehaviour
     {
+        public bool dynamic;
         private class NavMeshChiefSourceBaker : Baker<NavMeshChiefSourceAuthoring>
         {
             public override void Bake(NavMeshChiefSourceAuthoring authoring)
@@ -18,7 +19,7 @@ namespace NavMeshChiefMode.Hybrid.Authoring
                     if (provider.TryGetSource(out var source))
                     {
                         var e = GetEntity(TransformUsageFlags.Dynamic);
-                        AddComponent(e, new NavMeshChiefRuntimeSource() { source = source.AsNative() });
+                        AddComponent(e, new NavMeshChiefRuntimeSource() { source = source.AsNative(),dynamic = authoring.dynamic });
                     }
                     else
                     {

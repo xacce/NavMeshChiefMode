@@ -16,5 +16,6 @@ namespace NavMeshChiefMode.Runtime
     public partial struct NavMeshChiefRuntimeSource : IComponentData
     {
         public NavMeshBuildSource source; //Todo make blob asset!!!
+        public bool dynamic;
     }
 }

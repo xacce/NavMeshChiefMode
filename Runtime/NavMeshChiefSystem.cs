@@ -16,7 +16,7 @@ namespace NavMeshChiefMode.Runtime
 
         public void OnCreate(ref SystemState state)
         {
-            state.RequireForUpdate<EndInitializationEntityCommandBufferSystem.Singleton>();
+            state.RequireForUpdate<EndSimulationEntityCommandBufferSystem.Singleton>();
             state.RequireForUpdate<NavMeshChief>();
         }
 
@@ -28,7 +28,7 @@ namespace NavMeshChiefMode.Runtime
         public void OnUpdate(ref SystemState state)
         {
             var chiefSources = SystemAPI.GetBuffer<NavMeshSourceElement>(_chiefEntity);
-            var ecbSingleton = SystemAPI.GetSingleton<EndInitializationEntityCommandBufferSystem.Singleton>();
+            var ecbSingleton = SystemAPI.GetSingleton<EndSimulationEntityCommandBufferSystem.Singleton>();
             var hasUpdates = new NativeArray<int>(1, Allocator.TempJob);
             hasUpdates[0] = 0;
 

@@ -3,6 +3,8 @@ using Unity.Burst;
 using Unity.Burst.Intrinsics;
 using Unity.Collections;
 using Unity.Entities;
+using Unity.Mathematics;
+using Unity.Transforms;
 using UnityEngine.AI;
 
 namespace NavMeshChiefMode.Runtime.Jobs
@@ -16,13 +18,22 @@ namespace NavMeshChiefMode.Runtime.Jobs
         public NativeArray<int> hasUpdates;
 
         [BurstCompile]
-        public void Execute(NavMeshChiefRuntimeSource source, Entity entity)
+        public void Execute(NavMeshChiefRuntimeSource source, in LocalToWorld ltw, Entity entity)
         {
             ecb.AddComponent(entity, new NavMeshChiefSourceRegistered() { });
-            sources.Add(new NavMeshSourceElement() { primitive = source.source, binded = entity });
+            NavMeshBuildSource dyn;
+            if (source.dynamic)
+            {
+                dyn = source.source;
+                dyn.transform = math.mul(ltw.Value, dyn.transform);
+            }
+            else
+            {
+                dyn = source.source;
+            }
+
+            sources.Add(new NavMeshSourceElement() { primitive = dyn, binded = entity });
             hasUpdates[0]++;
         }
-
-      
     }
 }
