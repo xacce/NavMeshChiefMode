@@ -5,6 +5,7 @@ using Unity.Collections;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
+using UnityEngine;
 using UnityEngine.AI;
 
 namespace NavMeshChiefMode.Runtime.Jobs
@@ -26,6 +27,7 @@ namespace NavMeshChiefMode.Runtime.Jobs
             {
                 dyn = source.source;
                 dyn.transform = math.mul(ltw.Value, dyn.transform);
+              
             }
             else
             {
